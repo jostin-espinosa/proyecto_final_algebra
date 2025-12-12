@@ -1,8 +1,8 @@
 import tkinter as tk
 import time
 import random
-from .logica_tragamonedas import generar_tablero, validar_premios, SIMBOLOS
-from .conexion_mysql import guardar_puntaje
+from logica_tragamonedas import generar_tablero, validar_premios, SIMBOLOS
+from conexion_mysql import guardar_puntaje
 
 
 class TragaperrasGUI:

@@ -1,6 +1,6 @@
 import tkinter as tk
-from gui_tragamonedas import TragaperrasGUI
-from conexion_mysql import obtener_top_puntajes, vaciar_puntajes
+from .gui_tragamonedas import TragaperrasGUI
+from .conexion_mysql import obtener_top_puntajes, vaciar_puntajes
 
 
 class MenuPrincipal:
@@ -119,10 +119,10 @@ class MenuPrincipal:
         tk.Label(puntos, text="Puntajes Altos", font=("Arial", 24)).pack(pady=20)
 
         # Obtener y mostrar los puntajes desde MySQL
-        puntajes = obtener_top_puntajes(limite=10)
+        puntajes = obtener_puntajes()
         if puntajes:
-            for i, (nombre, puntaje) in enumerate(puntajes, start=1):
-                tk.Label(puntos, text=f"{i}. {nombre}: {puntaje}", font=("Arial", 16)).pack(pady=8)
+            for i, (nombre, pts, fecha) in enumerate(puntajes, start=1):
+                tk.Label(puntos, text=f"{i}. {nombre}: {pts} pts ({fecha})", font=("Arial", 16)).pack(pady=8)
         else:
             tk.Label(puntos, text="No hay puntajes aún.", font=("Arial", 16)).pack(pady=50)
 
